@@ -16,7 +16,7 @@ var source = new Bokeh.ColumnDataSource({
       y: [1,2,3,4],
   }
 		}); 
-var tools = "pan,crosshair,wheel_zoom,box_zoom,reset,save";
+
 
 var xdr = new Bokeh.FactorRange({ factors: source.data.x.filter( onlyUnique ).sort() });	
 var ydr = Bokeh.Range1d(0, 5);
@@ -25,8 +25,7 @@ var p = new Bokeh.Plot({
   x_range: xdr,
   y_range: ydr,
   plot_width: 300,
-  plot_height: 300,
-  tools: tools,
+  plot_height: 300
 });
 p.attributes["above"][0]['align']='center';  	
 var xaxis = new Bokeh.CategoricalAxis({
