@@ -45,7 +45,7 @@ var glyph = new Bokeh.VBar({
   width: 0.8,fill_alpha:0.9,
 });
 p.add_glyph(glyph, source);
-  
+Bokeh.Plotting.show(p, document.getElementById('myplot'));   
   
 function onlyUnique(value, index, self) { 
   return self.indexOf(value) === index;
