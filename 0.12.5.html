@@ -14,6 +14,7 @@ var source = new Bokeh.ColumnDataSource({
   data: {
       x: ['a','a','b','b'],
       y: [1,2,3,4],
+      bottom: [0,0,0,0],
   }
 		}); 
 var xdr = new Bokeh.FactorRange({ factors: source.data.x.filter( onlyUnique ).sort() });	
