@@ -5,8 +5,8 @@
   <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-0.12.5.js"></script>
 </head>
 <body>
-<h1>Example of No Error for Bokeh 0.12.5  in Chrome</h1>
-
+<h1>Example of No Error for Bokeh 0.12.5  in Chrome</h1><br><br>
+<div id="myplot" />
 </body>
 
 <script>
@@ -44,7 +44,7 @@ var glyph = new Bokeh.VBar({
   width: 0.8,fill_alpha:0.9,
 });
 p.add_glyph(glyph, source);
-  
+Bokeh.Plotting.show(p, document.getElementById('myplot'));  
   
 function onlyUnique(value, index, self) { 
   return self.indexOf(value) === index;
