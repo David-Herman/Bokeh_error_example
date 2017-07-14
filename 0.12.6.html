@@ -21,7 +21,7 @@ var source = new Bokeh.ColumnDataSource({
 var xdr = new Bokeh.FactorRange({ factors: source.data.x.filter( onlyUnique ).sort() });	
 var ydr = Bokeh.Range1d(0, 5);
 var p = new Bokeh.Plot({
-  title: "Test Configurations Covered",
+  title: "My Title",
   x_range: xdr,
   y_range: ydr,
   plot_width: 300,
