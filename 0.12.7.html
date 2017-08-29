@@ -5,7 +5,7 @@
   <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-0.12.7.js"></script>
 </head>
 <body>
-<h1>Example of Bokeh 0.12.7 Error in Chrome</h1><br><br>
+<h1>Example of Bokeh 0.12.7 Categorical Plot with Updating JS code</h1><br><br>
 <div id="myplot" />
 
 </body>
@@ -27,13 +27,10 @@ var p = new Bokeh.Plotting.Figure({
   plot_width: 300,
   plot_height: 300});
   
-p.attributes["above"][0]['align']='center';  	
-var xaxis = new Bokeh.CategoricalAxis({
-  major_label_orientation: Math.PI / 3});  
+p.attributes["above"][0]['align']='center';
+p.attributes['below'][0]['major_label_orientation']=Math.PI / 3
   
-var yaxis = new Bokeh.LinearAxis({});
-p.add_layout(xaxis, "below");
-p.add_layout(yaxis, "left");
+
   
 var xgrid = new Bokeh.Grid({ ticker: xaxis.ticker, dimension: 0 });
 var ygrid = new Bokeh.Grid({ ticker: yaxis.ticker, dimension: 1 });
