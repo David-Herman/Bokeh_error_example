@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.min.css">
+  <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-0.12.7.js"></script>
+  <script type="text/javascript" src="https://cdn.pydata.org/bokeh/release/bokeh-api-0.12.7.js"></script>
+</head>
+<body>
+<h1>Example of Bokeh 0.12.6 Error in Chrome</h1><br><br>
+<div id="myplot" />
+
+</body>
+
+<script>
+var source = new Bokeh.ColumnDataSource({
+  data: {
+      x: ['a','a','b','b'],
+      y: [1,2,3,4],
+      bottom: [0,0,0,0],
+  }
+		}); 
+var xdr = new Bokeh.FactorRange({ factors: source.data.x.filter( onlyUnique ).sort() });	
+var ydr = Bokeh.Range1d(0, 5);
+var p = new Bokeh.Plot({
+  title: "My Title",
+  x_range: xdr,
+  y_range: ydr,
+  plot_width: 300,
+  plot_height: 300});
+  
+p.attributes["above"][0]['align']='center';  	
+var xaxis = new Bokeh.CategoricalAxis({
+  major_label_orientation: Math.PI / 3});  
+  
+var yaxis = new Bokeh.LinearAxis({});
+p.add_layout(xaxis, "below");
+p.add_layout(yaxis, "left");
+  
+var xgrid = new Bokeh.Grid({ ticker: xaxis.ticker, dimension: 0 });
+var ygrid = new Bokeh.Grid({ ticker: yaxis.ticker, dimension: 1 });
+p.add_layout(xgrid);
+p.add_layout(ygrid);  
+var glyph = new Bokeh.VBar({
+  x: { field: "x" },
+  top: { field: "y" },
+  bottom: { field: "bottom" },
+  width: 0.8,fill_alpha:0.9,});
+  
+p.add_glyph(glyph, source);
+Bokeh.Plotting.show(p, document.getElementById('myplot'));   
+  
+function onlyUnique(value, index, self) { 
+  return self.indexOf(value) === index;
+};  
+  
+</script>
