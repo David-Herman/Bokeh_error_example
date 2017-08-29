@@ -32,10 +32,10 @@ p.attributes['below'][0]['major_label_orientation']=Math.PI / 3
   
 
   
-var xgrid = new Bokeh.Grid({ ticker: xaxis.ticker, dimension: 0 });
-var ygrid = new Bokeh.Grid({ ticker: yaxis.ticker, dimension: 1 });
-p.add_layout(xgrid);
-p.add_layout(ygrid);  
+//var xgrid = new Bokeh.Grid({ ticker: xaxis.ticker, dimension: 0 });
+//var ygrid = new Bokeh.Grid({ ticker: yaxis.ticker, dimension: 1 });
+//p.add_layout(xgrid);
+//p.add_layout(ygrid);  
 var glyph = new Bokeh.VBar({
   x: { field: "x" },
   top: { field: "y" },
